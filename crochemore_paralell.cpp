@@ -5,6 +5,7 @@
 #include <vector>
 #include <random>
 #include <omp.h>
+#include <chrono>
 
 using namespace std;
 typedef unsigned int uint;
@@ -104,6 +105,7 @@ Stats merge(const Stats &a, const Stats &b) {
 }
 
 int main() {
+    double t0 = omp_get_wtime();
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
@@ -149,5 +151,7 @@ int main() {
             << "General error:           " << general_error << '\n'
             << "99% confidence interval: [" << ci_low
             << ", " << ci_high << "]\n";
+    double elapsed = omp_get_wtime() - t0;
+    std::cout << "Elapsed wall time: " << elapsed << " s\n";
     return 0;
 }
