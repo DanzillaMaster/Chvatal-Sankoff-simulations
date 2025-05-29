@@ -1,0 +1,7 @@
+100'000, 100'000
+Approximation (gamma_2): 0.811835
+Standard deviation:      0.000324
+Standard error:          0.000001
+Delta:                   0.004472
+General error:           0.004475
+99% confidence interval: [0.807360, 0.816310]

@@ -105,11 +105,10 @@ Stats merge(const Stats &a, const Stats &b) {
 }
 
 int main() {
-    double t0 = omp_get_wtime();
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    const int n = 100'000; // длина строк
+    const int n = 50'000; // длина строк
     const int N = 100'000; // число симуляций
     const int P = 12; // число потоков (предзадано)
 
@@ -117,10 +116,16 @@ int main() {
 
 #pragma omp parallel num_threads(P)
     {
+        double t0 = omp_get_wtime();
         int tid = omp_get_thread_num();
         mt19937 gen((unsigned) time(nullptr) + tid * 997); // уникальный seed
 
         for (int iter = tid; iter < N; iter += P) {
+            if (tid == 0 & iter % 100 == 0) {
+                cout << "Progress: " << iter / P << "/" << N / P << '\n';
+                double elapsed = omp_get_wtime() - t0;
+                std::cout << "Elapsed time: " << elapsed << " s\n";
+            }
             string s1 = generate_random_binary_string(n, gen);
             string s2 = generate_random_binary_string(n, gen);
             int lcs = lcs_cipr(s1, s2);
@@ -144,14 +149,13 @@ int main() {
 
     cout.setf(ios::fixed);
     cout.precision(6);
-    cout << "Approximation (gamma_2): " << global.m << '\n'
+    cout << "n, M:                    " << n << ", " << N << '\n'
+            << "Approximation (gamma_2): " << global.m << '\n'
             << "Standard deviation:      " << stddev << '\n'
             << "Standard error:          " << se << '\n'
             << "Delta:                   " << delta << '\n'
             << "General error:           " << general_error << '\n'
             << "99% confidence interval: [" << ci_low
             << ", " << ci_high << "]\n";
-    double elapsed = omp_get_wtime() - t0;
-    std::cout << "Elapsed wall time: " << elapsed << " s\n";
     return 0;
 }
