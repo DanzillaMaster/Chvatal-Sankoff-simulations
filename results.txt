@@ -1,7 +1,39 @@
-100'000, 100'000
+n, M:                    100000, 100000
 Approximation (gamma_2): 0.811835
 Standard deviation:      0.000324
 Standard error:          0.000001
 Delta:                   0.004472
 General error:           0.004475
 99% confidence interval: [0.807360, 0.816310]
+
+n, M:                    50000, 100000
+Approximation (gamma_2): 0.811619
+Standard deviation:      0.000481
+Standard error:          0.000002
+Delta:                   0.006325
+General error:           0.006328
+99% confidence interval: [0.805291, 0.817948]
+
+n, M:                    25000, 100000
+Approximation (gamma_2): 0.811289
+Standard deviation:      0.000720
+Standard error:          0.000002
+Delta:                   0.008944
+General error:           0.008950
+99% confidence interval: [0.802339, 0.820239]
+
+n, M:                    12500, 100000
+Approximation (gamma_2): 0.810762
+Standard deviation:      0.001082
+Standard error:          0.000003
+Delta:                   0.012649
+General error:           0.012658
+99% confidence interval: [0.798104, 0.823420]
+
+n, M:                    6250, 100000
+Approximation (gamma_2): 0.809953
+Standard deviation:      0.001637
+Standard error:          0.000005
+Delta:                   0.017889
+General error:           0.017902
+99% confidence interval: [0.792051, 0.827855]

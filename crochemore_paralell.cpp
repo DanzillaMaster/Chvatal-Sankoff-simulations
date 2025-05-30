@@ -108,7 +108,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    const int n = 50'000; // длина строк
+    const int n = 6'250; // длина строк
     const int N = 100'000; // число симуляций
     const int P = 12; // число потоков (предзадано)
 
